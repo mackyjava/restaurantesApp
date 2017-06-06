@@ -5,23 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
 	<title>RestaurantApp</title>
 </head>
 <body>
-  <nav class="navbar navbar-inverse">
+  <nav class="navbar navbar-inverse col-sm-12">
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-link" href="#">
-          <h3>Restaurant Recommender App.</h3>
+          <h5>Restaurant Recommender App.</h5>
         </a>
-        <div class="col-lg-3 navbar-right">
+        <form id="search-form" class="col-lg-3 navbar-right">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for...">
+            <input id="search" type="text" class="form-control" placeholder="Search for...">
               <span class="input-group-btn">
                 <button class="btn btn-default" type="button">Go!</button>
               </span>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   </nav>
@@ -37,20 +38,20 @@
           <li data-target="#carousel-example-generic" data-slide-to="4" class=""></li> 
         </ol> 
         <div class="carousel-inner" role="listbox"> 
-          <div class="item"> 
-            <img alt="First slide [900x500]" data-src="holder.js/900x500/auto/#777:#555/text:First slide" src="assets/img/rest.jpg" data-holder-rendered="true"> 
-          </div> 
           <div class="item active"> 
-            <img alt="Second slide [900x500]" data-src="holder.js/900x500/auto/#666:#444/text:Second slide" src="assets/img/restaurante1.jpg" data-holder-rendered="true"> 
+            <img alt="First slide [900x500]" data-src="holder.js/900x500/auto/#777:#555/text:First slide" src="assets/img/taberna.jpg" data-holder-rendered="true"> 
+          </div> 
+          <div class="item "> 
+            <img alt="Second slide [900x500]" data-src="holder.js/900x500/auto/#666:#444/text:Second slide" src="assets/img/maximo.jpg" data-holder-rendered="true"> 
           </div> 
           <div class="item"> 
-            <img alt="Third slide [900x500]" data-src="holder.js/900x500/auto/#555:#333/text:Third slide" src="assets/img/restaurante2.jpg" data-holder-rendered="true"> 
+            <img alt="Third slide [900x500]" data-src="holder.js/900x500/auto/#555:#333/text:Third slide" src="assets/img/delirio.jpg" data-holder-rendered="true"> 
           </div>
           <div class="item"> 
-            <img alt="fourth slide [900x500]" data-src="holder.js/900x500/auto/#555:#333/text:Third slide" src="assets/img/restaurante2.jpg" data-holder-rendered="true"> 
+            <img alt="fourth slide [900x500]" data-src="holder.js/900x500/auto/#555:#333/text:Third slide" src="assets/img/danubio.jpg" data-holder-rendered="true"> 
           </div> 
           <div class="item"> 
-            <img alt="fifth slide [900x500]" data-src="holder.js/900x500/auto/#555:#333/text:Third slide" src="assets/img/restaurante2.jpg" data-holder-rendered="true"> 
+            <img alt="fifth slide [900x500]" data-src="holder.js/900x500/auto/#555:#333/text:Third slide" src="assets/img/zoku.jpg" data-holder-rendered="true"> 
           </div>  
         </div> 
         <a href="#carousel-example-generic" class="left carousel-control" role="button" data-slide="prev"> 
@@ -66,22 +67,44 @@
     Lista de Recomendaciones de la Semana
     <span class="caret"></span>
   </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li><a href="#">Restaurante Koku</a></li>
-    <li><a href="#">Restaurante 123</a></li>
-    <li><a href="#">Something else here</a></li>
-    <li ><a href="#">Something else here</a></li>
-    <li><a href="#">Separated link</a></li>
+  <ul id="lista" class="dropdown-menu" aria-labelledby="dropdownMenu1">
+     <li ><a href="#" data-latitud="19.3390229" data-longitud="-99.1954311" class="rest">La Taberna del León</a><small>Numero Telefonico: "01 (55) 5616-2110"
+		</small><br><small>Direccion: "Altamirano No. 46 Local 173, Ciudad de México"
+		</small></li>
+	 <li role="separator" class="divider"></li>	
+    <li ><a href="#" data-latitud="19.4152165" data-longitud="-99.164261" class="rest">Maximo Bistro</a><small>Numero Telefonico: "01 (55) 5264-4291"
+		</small><br><small>Direccion: "Tonalá No. 133 esquina Zacatecas, Ciudad de México"
+		</small></li>
+     <li role="separator" class="divider"></li>
+    <li ><a href="#" data-latitud="19.417174" data-longitud="-99.1660937" class="rest">Delirio</a><small>Numero Telefonico: "01 (55) 5584-0870"
+		</small><br><small>Direccion: "Monterrey No. 116 - B esquina Álvaro Obregón, Ciudad de México"
+		</small></li>
+     <li role="separator" class="divider"></li>
+    <li ><a href="#" data-latitud="19.4310795" data-longitud="-99.1431798" class="rest">Danubio</a><small>Numero Telefonico: "01 (55) 5512-0912"
+		</small><br><small>Direccion: "República de Uruguay No. 3, Ciudad de México"
+		</small></li>
+     <li role="separator" class="divider"></li>
+    <li ><a href="#" data-latitud="19.4184402" data-longitud="-99.1765809" class="rest">Zoku por Hiroshi</a><small>Numero Telefonico: "01 (55) 5211-9855"
+		</small><br><small>Direccion: "Durango No. 359, Ciudad de México"
+		</small></li>
   </ul>
   </div>
    <div id="map">
  </div>
+ <section class="Restaurante">
+  			<article class="row restaurante">
+          <div class="card-panel hoverable  z-depth-1">
+            <div class="row valign-wrapper">
+              <div class="col s3">
+              </div>
+              </div>
+              </div>
+              </article>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
  <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBClnx5DC7oQG5AJzWtLKFuq1t-hVDatrc&callback=initMap"></script>
  <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
  <script type="text/javascript" src="assets/js/jquery-3.2.1.min.js"></script>
-
  <script type="text/javascript" src="assets/js/main.js"></script>
 </body>
 </html>
